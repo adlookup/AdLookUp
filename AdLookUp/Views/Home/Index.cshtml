@@ -1,0 +1,71 @@
+﻿@using AdLookUp.Models;
+@model IEnumerable<AdLookUp.Models.Directory>
+
+@{
+    /**/
+
+    ViewBag.Title = "Home Page";
+}
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <!-- lewa -->
+        </div>
+        <div class="col-md-4">
+            <h6>PANEL PRACOWNIKA</h6>
+        </div>
+        <div class="col-md-4">
+            <!-- prawa -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="">
+            <img src="~/Images/srodek.png" alt="" class="col-sm-3" />
+        </div>
+        <div class="">
+            <img src="~/Images/srodek.png" class="col-sm-3" />
+        </div>
+        <div class="">
+            <img src="~/Images/lewo.png" class="col-sm-6" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <!--lewa -->
+        </div>
+        <div class="col-md-3">
+            <form class="navbar-form" role="search">
+                <div class="input-group add-on">
+                    <input class="form-control" placeholder="Wyszukaj pracownika" name="srch-term" id="srch-term" type="text">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <div>
+                    @foreach (AdLookUp.Models.Directory dir in Model)
+        {
+            <p>
+                <h3>@dir.Name</h3>
+                <ul>
+                    @foreach (User usr in dir.Users)
+        {
+            <li>@usr.Name</li>
+}
+                </ul>
+            </p>
+}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- prawa -->
+        </div>
+    </div>
+
